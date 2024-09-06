@@ -27,8 +27,7 @@ jobs:
             sudo timedatectl set-timezone Asia/Ho_Chi_Minh
       
        - name: Download Services.jar
-         run: |
-            axel -n $(nproc) ${{ github.event.inputs.ROM_URL }}
+          run: curl -o services.jar ${{ github.event.inputs.ROM_URL }}
             
        - name : PATCH-ING
          run: |
