@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
      ROM_URL:
-      description: 'Services.jar Url'
+      description: 'Services.jar https://drive.google.com/file/d/1lCRDZZ_63qhcg1hNYdVoooir-1twOlA1/view?usp=drive_link'
       required: true
       default: ''
 jobs:
@@ -27,7 +27,7 @@ jobs:
             sudo timedatectl set-timezone Asia/Ho_Chi_Minh
       
        - name: Download Services.jar
-            run: curl -o services.jar https://drive.google.com/uc?export=download&id=${{ github.event.inputs.services.jar }}
+             run: curl -o services.jar ${{ github.event.inputs.ROM_URL }}
         
        - name : PATCH-ING
          run: |
