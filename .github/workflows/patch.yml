@@ -27,7 +27,7 @@ jobs:
             sudo timedatectl set-timezone Asia/Ho_Chi_Minh
       
        - name: Download Services.jar
-            run: curl -o services.jar ${{ github.event.inputs.https://drive.google.com/drive/folders/1d6G6u9RMudj7I3VOumO_If0ZwdDdNP6U }}
+            run: curl -o services.jar ${{ github.event.inputs.https://drive.google.com/file/d/1lCRDZZ_63qhcg1hNYdVoooir-1twOlA1/view?usp=sharing }}
             
        - name : PATCH-ING
          run: |
