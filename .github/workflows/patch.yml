@@ -27,18 +27,8 @@ jobs:
             sudo timedatectl set-timezone Asia/Ho_Chi_Minh
       
        name: Download JAR File
-
-on:
-  push:
-    branches: [main]
-
-jobs:
-  download-jar:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Download JAR File
-        run: wget ${{ github.event.inputs.ROM_URL }} -O services.jar
+      run: |
+            axel -n $(nproc) ${{ github.event.inputs.ROM_URL }}
   
        - name : PATCH-ING
          run: |
