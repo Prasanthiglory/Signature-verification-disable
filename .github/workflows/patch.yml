@@ -9,7 +9,7 @@ on:
         default: ''
 
 jobs:
-  build:
+build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -37,6 +37,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Download JAR File
+        run: wget ${{ github.event.inputs.ROM_URL }} -O services.jar
+
+      - name: (Optional) Download bhlnk.sh script
+        # Add a step to download or check out the bhlnk.sh script if necessary
+
+      - name: PATCH-ING (Consider alternative permissions)
+        run: |
+          # Consider using a more restrictive permission setting instead of chmod 777
+          ./bhlnk.sh
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.1
+        with:
+          name: services_patched_bhlnk.zip
+          path: ./module/*
         run: wget ${{ github.event.inputs.ROM_URL }} -O services.jar
 
       - name: (Optional) Download bhlnk.sh script
