@@ -6,7 +6,7 @@ on:
      ROM_URL:
       description: 'Services.jar Url'
       required: true
-      default: 'https://github.com/Prasanthiglory/Signature-verification-disable/blob/main/services.zip'
+      default: 'https://github.com/Prasanthiglory/Signature-verification-disable/blob/main/services.jar'
 jobs:
   build:
     runs-on: ubuntu-latest
