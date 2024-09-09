@@ -18,17 +18,14 @@ jobs:
          run: |
             sudo apt-get install -y git wget zip unzip axel python3-pip zipalign apksigner xmlstarlet
             pip3 install ConfigObj
-  
        - name: Set up Time 
          run: |
             cd $GITHUB_WORKSPACE
             echo "Setting Vienam timezone"
             sudo timedatectl set-timezone Asia/Ho_Chi_Minh
-      
-       - name: Download Services.jar
+        - name: Download Services.jar
          run: |
-            axel -n $(nproc) ${{ github.event.inputs.ROM_URL }}
-            
+            axel -n $(nproc) ${{ github.event.inputs.ROM_URL }} 
        - name : PATCH-ING
          run: |
             sudo chmod 777 -R *
