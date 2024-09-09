@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
      ROM_URL:
-      description: 'Services.jar'
+      description: 'Services.jar  Url'
       required: true
-      default: 'https://drive.google.com/file/d/1lCRDZZ_63qhcg1hNYdVoooir-1twOlA1/view?usp=drive_link'
+      default: ''
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,8 +27,8 @@ jobs:
             sudo timedatectl set-timezone Asia/Ho_Chi_Minh
       
        - name: Download Services.jar
-             run: wget ${{ github.event.inputs.ROM_URL }} -O services.jar
-        
+            run: |
+            axel -n $(nproc) ${{ github.event.inputs.ROM_URL }}
        - name : PATCH-ING
          run: |
             sudo chmod 777 -R *
