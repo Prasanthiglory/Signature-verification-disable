@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
      ROM_URL:
-      description: 'Services.jar https://drive.google.com/file/d/1lCRDZZ_63qhcg1hNYdVoooir-1twOlA1/view?usp=drive_link'
+      description: 'Services.jar'
       required: true
-      default: ''
+      default: 'https://drive.google.com/file/d/1lCRDZZ_63qhcg1hNYdVoooir-1twOlA1/view?usp=drive_link'
 jobs:
   build:
     runs-on: ubuntu-latest
